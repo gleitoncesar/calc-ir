@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="0934b73c-a236-4a3a-9d79-caa24a559a20" ChangeDateTime="09/23/2018 20:48:50">
+    <Property Name="ElementName" Value="[dbo].[Negocio].[TipoMercado]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Negocio]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdTipoMercado" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5264d43f-d951-46ca-8f62-30dab7dcc92b" ChangeDateTime="09/23/2018 20:50:26">
+    <Property Name="ElementName" Value="[dbo].[Negocio].[IdTipoNegociacao]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Negocio]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdTipoNegocio" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d1b615a2-75f4-4352-b8a5-1487f70efe9d" ChangeDateTime="09/23/2018 21:03:00">
+    <Property Name="ElementName" Value="[dbo].[Operacao].[IdAcao]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Operacao]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdPapel" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="de7f5e03-9ed3-486f-83c9-ab66917f8d3b" ChangeDateTime="09/23/2018 21:16:54">
+    <Property Name="ElementName" Value="[dbo].[TipoNegocio].[Tipo]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TipoNegocio]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Nome" />
+  </Operation>
+</Operations>
