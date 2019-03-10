@@ -1,6 +1,0 @@
-﻿CREATE TABLE [dbo].[Mercado]
-(
-	[Id] BIGINT NOT NULL, 
-    [Nome] VARCHAR(50) NOT NULL,
-	CONSTRAINT PK_Mercado PRIMARY KEY(Id)
-)

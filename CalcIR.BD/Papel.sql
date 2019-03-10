@@ -1,7 +1,0 @@
-﻿CREATE TABLE [dbo].[Papel]
-(
-	[Id] BIGINT NOT NULL,
-    [Codigo] VARCHAR(12) NOT NULL, 
-	[Nome] VARCHAR(50) NOT NULL, 
-    CONSTRAINT PK_Papel PRIMARY KEY(Id)
-)
