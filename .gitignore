@@ -2,13 +2,19 @@
 # Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
 ################################################################################
 
+
+/.vs
 /CalcIR.Web/bin
 /CalcIR.Web/obj
-/.vs
 /CalcIR.BD/bin
 /CalcIR.BD/obj
-*.dbmdl
 /CalcIR.Data/bin
 /CalcIR.Data/obj
-/CalcIR.BD/CalcIR.BD.jfm
 /CalcIR.Domain/obj
+/CalcIR.Domain/bin
+/CalcIR.Repository/bin
+/CalcIR.Repository/obj
+/CalcIR.Service/bin
+/CalcIR.Service/obj
+/CalcIR.Service.Test/bin
+/CalcIR.Service.Test/obj

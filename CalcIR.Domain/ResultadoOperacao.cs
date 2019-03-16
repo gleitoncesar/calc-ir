@@ -4,20 +4,18 @@ using System.Text;
 
 namespace CalcIR.Domain
 {
-    public class Custodia
+    public class ResultadoOperacao
     {
-        public Custodia()
+        public ResultadoOperacao()
         {
             Papel = new Papel();
             Usuario = new Usuario();
         }
 
         public int Id { get; set; }
-        public DateTime DataReferencia { get; set; }
         public Usuario Usuario { get; set; }
         public Papel Papel { get; set; }
-        public int Quantidade { get; set; }
+        public DateTime DataResultado { get; set; }
         public decimal Valor { get; set; }
-        public bool Ativo { get; set; }
     }
 }

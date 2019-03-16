@@ -4,8 +4,9 @@ using System.Text;
 
 namespace CalcIR.Domain
 {
-    public class Resultado
+    public class Usuario
     {
         public int Id { get; set; }
+        public string Apelido { get; set; }
     }
 }

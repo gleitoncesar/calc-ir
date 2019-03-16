@@ -16,7 +16,9 @@ namespace CalcIR.Repository
         public DbSet<NotaCorretagem> NotaCorretagem { get; set; }
         public DbSet<Operacao> Operacao { get; set; }
         public DbSet<Papel> Papel { get; set; }
-        public DbSet<Resultado> Resultado { get; set; }
+        public DbSet<ResultadoOperacao> ResultadoOperacao { get; set; }
+        public DbSet<ResultadoAcumulado> ResultadoAcumulado { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,7 +29,9 @@ namespace CalcIR.Repository
             ConfigurarNotaCorretagem(modelBuilder);
             ConfigurarOperacao(modelBuilder);
             ConfigurarPapel(modelBuilder);
-            ConfigurarResultado(modelBuilder);
+            ConfigurarResultadoAcumulado(modelBuilder);
+            ConfigurarResultadoOperacao(modelBuilder);
+            ConfigurarUsuario(modelBuilder);
         }
 
         private void ConfigurarCustodia(ModelBuilder modelBuilder)
@@ -73,26 +77,46 @@ namespace CalcIR.Repository
                 .HasColumnName("Id")
                 .ValueGeneratedOnAdd();
 
-                entry.Property(p => p.Codigo)
-                .HasColumnName("Codigo")
-                .HasColumnType("VARCHAR(12)");
+                //entry.Property(p => p.Codigo)
+                //.HasColumnName("Codigo")
+                //.HasColumnType("VARCHAR(12)");
 
-                entry.Property(p => p.Mercado)
-                .HasColumnName("Mercado")
-                .HasColumnType("CHAR(1)");
+                //entry.Property(p => p.Mercado)
+                //.HasColumnName("Mercado")
+                //.HasColumnType("CHAR(1)");
 
-                entry.Property(p => p.Nome)
-                .HasColumnName("Nome")
-                .HasColumnType("VARCHAR(50)");
+                //entry.Property(p => p.Nome)
+                //.HasColumnName("Nome")
+                //.HasColumnType("VARCHAR(50)");
             });
         }
 
-        private void ConfigurarResultado(ModelBuilder modelBuilder)
+        private void ConfigurarUsuario(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Resultado>(entry =>
+            modelBuilder.Entity<Usuario>(entry =>
             {
-                entry.ToTable("Resultado");
-                entry.HasKey(p => p.Id).HasName("PK_Resultado");
+                entry.ToTable("Usuario");
+                entry.HasKey(p => p.Id).HasName("PK_Usuario");
+                entry.Property(p => p.Id).HasColumnName("Id").ValueGeneratedOnAdd();
+            });
+        }
+
+        private void ConfigurarResultadoOperacao(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ResultadoOperacao>(entry =>
+            {
+                entry.ToTable("ResultadoOperacao");
+                entry.HasKey(p => p.Id).HasName("PK_ResultadoOperacao");
+                entry.Property(p => p.Id).HasColumnName("Id").ValueGeneratedOnAdd();
+            });
+        }
+
+        private void ConfigurarResultadoAcumulado(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ResultadoAcumulado>(entry =>
+            {
+                entry.ToTable("ResultadoAcumulado");
+                entry.HasKey(p => p.Id).HasName("PK_ResultadoAcumulado");
                 entry.Property(p => p.Id).HasColumnName("Id").ValueGeneratedOnAdd();
             });
         }
