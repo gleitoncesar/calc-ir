@@ -9,6 +9,6 @@ namespace CalcIR.Domain
         public int Id { get; set; }
         public string Codigo { get; set; }
         public string Nome { get; set; }
-        public string Mercado { get; set; }
+        public char Mercado { get; set; }
     }
 }

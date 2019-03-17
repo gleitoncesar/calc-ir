@@ -1,7 +1,10 @@
 ﻿using CalcIR.Domain;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace CalcIR.Repository
@@ -15,11 +18,12 @@ namespace CalcIR.Repository
         public DbSet<Custodia> Custodia { get; set; }
         public DbSet<NotaCorretagem> NotaCorretagem { get; set; }
         public DbSet<Operacao> Operacao { get; set; }
+
         public DbSet<Papel> Papel { get; set; }
         public DbSet<ResultadoOperacao> ResultadoOperacao { get; set; }
         public DbSet<ResultadoAcumulado> ResultadoAcumulado { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ForSqlServerUseIdentityColumns();
@@ -34,12 +38,26 @@ namespace CalcIR.Repository
             ConfigurarUsuario(modelBuilder);
         }
 
+        public void TrySaveChanges()
+        {
+            try
+            {
+                SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                //TODO Log
+                Debug.WriteLine(ex.ToString());
+                throw;
+            }
+        }
+
         private void ConfigurarCustodia(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Custodia>(entry =>
             {
                 entry.ToTable("Custodia");
-                entry.HasKey(p=>p.Id).HasName("PK_Custodia");
+                entry.HasKey(p => p.Id).HasName("PK_Custodia");
                 entry.Property(p => p.Id).HasColumnName("Id").ValueGeneratedOnAdd();
             });
         }
@@ -76,18 +94,6 @@ namespace CalcIR.Repository
                 entry.Property(p => p.Id)
                 .HasColumnName("Id")
                 .ValueGeneratedOnAdd();
-
-                //entry.Property(p => p.Codigo)
-                //.HasColumnName("Codigo")
-                //.HasColumnType("VARCHAR(12)");
-
-                //entry.Property(p => p.Mercado)
-                //.HasColumnName("Mercado")
-                //.HasColumnType("CHAR(1)");
-
-                //entry.Property(p => p.Nome)
-                //.HasColumnName("Nome")
-                //.HasColumnType("VARCHAR(50)");
             });
         }
 

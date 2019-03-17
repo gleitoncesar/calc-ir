@@ -14,7 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CalcIR.Repository\CalcIR.Repository.csproj" />
+    <ProjectReference Include="..\CalcIR.Domain\CalcIR.Domain.csproj" />
+    <ProjectReference Include="..\CalcIR.Service\CalcIR.Service.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4,14 +4,16 @@ using CalcIR.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CalcIR.Repository.Migrations
 {
     [DbContext(typeof(CalcIRContext))]
-    partial class CalcIRContextModelSnapshot : ModelSnapshot
+    [Migration("20190316215403_v002")]
+    partial class v002
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -145,14 +147,10 @@ namespace CalcIR.Repository.Migrations
 
                     b.Property<string>("Mercado");
 
-                    b.Property<int?>("UsuarioId");
-
                     b.Property<decimal>("Valor");
 
                     b.HasKey("Id")
                         .HasName("PK_ResultadoAcumulado");
-
-                    b.HasIndex("UsuarioId");
 
                     b.ToTable("ResultadoAcumulado");
                 });
@@ -224,13 +222,6 @@ namespace CalcIR.Repository.Migrations
                     b.HasOne("CalcIR.Domain.Papel", "Papel")
                         .WithMany()
                         .HasForeignKey("PapelId");
-                });
-
-            modelBuilder.Entity("CalcIR.Domain.ResultadoAcumulado", b =>
-                {
-                    b.HasOne("CalcIR.Domain.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId");
                 });
 
             modelBuilder.Entity("CalcIR.Domain.ResultadoOperacao", b =>
