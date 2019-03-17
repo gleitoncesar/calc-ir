@@ -31,7 +31,7 @@ namespace CalcIR.Service
 
         internal void PrcessarResultado(Usuario usuario, DateTime dataPregao)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

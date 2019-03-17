@@ -7,7 +7,7 @@ namespace CalcIR.Service
     {
         internal void PrcessarCustodia(Usuario usuario, DateTime dataPregao)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
