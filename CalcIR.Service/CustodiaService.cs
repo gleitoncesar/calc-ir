@@ -3,7 +3,7 @@ using CalcIR.Domain;
 
 namespace CalcIR.Service
 {
-    internal class CustodiaService
+    public class CustodiaService : BaseService
     {
         internal void PrcessarCustodia(Usuario usuario, DateTime dataPregao)
         {
